@@ -53,9 +53,9 @@ angle = 120
 servo.SetAngle(angle)
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
-ap.add_argument("-p", "--prototxt",type = string, default="MobileNetSSD_deploy.prototxt.txt",
+ap.add_argument("-p", "--prototxt", default="MobileNetSSD_deploy.prototxt.txt",
 	help="path to Caffe 'deploy' prototxt file")
-ap.add_argument("-m", "--model", type = string, default="MobileNetSSD_deploy.caffemodel",
+ap.add_argument("-m", "--model", default="MobileNetSSD_deploy.caffemodel",
 	help="path to Caffe pre-trained model")
 ap.add_argument("-c", "--confidence", type=float, default=0.9,
 	help="minimum probability to filter weak detections")
