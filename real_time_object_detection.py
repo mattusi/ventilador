@@ -125,7 +125,7 @@ while True:
 				cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLORS[idx], 2)
 
 			print(angle)
-			if label == "person":
+			if "person" in label:
 				if 0 < x < 119:
 					print("Left")
 					if angle > 0:
