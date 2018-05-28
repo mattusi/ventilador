@@ -121,7 +121,7 @@ while True:
 			
 			if 0 < x < 119:
 				print("Left")
-				if angle < 180:
+				if angle < 100:
                                     angle = angle + 40
                                     servo.SetAngle(angle)
                                     
@@ -130,7 +130,7 @@ while True:
 				#servo.SetAngle(90)
 			else:
 				print("Right")
-				if angle > 60:
+				if angle > 0:
                                     angle = angle - 20
                                     servo.SetAngle(angle)
                                     
