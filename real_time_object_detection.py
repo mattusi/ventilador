@@ -63,7 +63,10 @@ args = vars(ap.parse_args())
 
 # initialize the list of class labels MobileNet SSD was trained to
 # detect, then generate a set of bounding box colors for each class
-CLASSES = ["person"]
+CLASSES = ["background", "aeroplane", "bicycle", "bird", "boat",
+	"bottle", "bus", "car", "cat", "chair", "cow", "diningtable",
+	"dog", "horse", "motorbike", "person", "pottedplant", "sheep",
+	"sofa", "train", "tvmonitor"]
 COLORS = np.random.uniform(0, 255, size=(len(CLASSES), 3))
 
 # load our serialized model from disk
@@ -112,27 +115,28 @@ while True:
 			(startX, startY, endX, endY) = box.astype("int")
 
 			# draw the prediction on the frame
-			label = "pessoa"
+			label = "{}: {:.2f}%".format(CLASSES[idx],
+				confidence * 100)
 			cv2.rectangle(frame, (startX, startY), (endX, endY),
 				COLORS[0], 2)
 			y = startY - 15 if startY - 15 > 15 else startY + 15
 			x = (endX + startX) / 2
 			print(angle)
-			
-			if 0 < x < 119:
-				print("Left")
-				if angle > 0:
-                                    angle = angle - 40
-                                    servo.SetAngle(angle)
+			if label == "person":
+				if 0 < x < 119:
+					print("Left")
+					if angle > 0:
+    					angle = angle - 20
+						servo.SetAngle(angle)
                                     
-			elif 120 < x < 260:
-				print("Center")
-				#servo.SetAngle(90)
-			else:
-				print("Right")
-				if angle < 100:
-                                    angle = angle + 40
-                                    servo.SetAngle(angle)
+				elif 120 < x < 260:
+					print("Center")
+					#servo.SetAngle(90)
+				else:
+					print("Right")
+					if angle < 100:
+                        angle = angle + 20
+                        servo.SetAngle(angle)
                                     
 			cv2.putText(frame, label, (startX, y),
 				cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLORS[0], 2)
