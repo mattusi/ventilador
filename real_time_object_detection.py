@@ -121,12 +121,15 @@ while True:
 				COLORS[0], 2)
 			y = startY - 15 if startY - 15 > 15 else startY + 15
 			x = (endX + startX) / 2
+			cv2.putText(frame, label, (startX, y),
+				cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLORS[idx], 2)
+
 			print(angle)
 			if label == "person":
 				if 0 < x < 119:
 					print("Left")
 					if angle > 0:
-    					angle = angle - 20
+						angle = angle - 20
 						servo.SetAngle(angle)
                                     
 				elif 120 < x < 260:
@@ -135,7 +138,7 @@ while True:
 				else:
 					print("Right")
 					if angle < 100:
-                        angle = angle + 20
+						angle = angle + 20
                         servo.SetAngle(angle)
                                     
 			cv2.putText(frame, label, (startX, y),
