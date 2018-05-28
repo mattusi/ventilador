@@ -139,7 +139,7 @@ while True:
 					print("Right")
 					if angle < 100:
 						angle = angle + 20
-                        servo.SetAngle(angle)
+						servo.SetAngle(angle)
                                     
 			cv2.putText(frame, label, (startX, y),
 				cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLORS[0], 2)
