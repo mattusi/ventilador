@@ -49,7 +49,7 @@ class Servo(object):
         
 
 servo = Servo(7)
-angle = 120
+angle = 40
 servo.SetAngle(angle)
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
@@ -131,7 +131,7 @@ while True:
 			else:
 				print("Right")
 				if angle > 0:
-                                    angle = angle - 20
+                                    angle = angle - 40
                                     servo.SetAngle(angle)
                                     
 			cv2.putText(frame, label, (startX, y),
