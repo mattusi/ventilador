@@ -145,12 +145,12 @@ while True:
 				cv2.FONT_HERSHEY_SIMPLEX, 0.5, COLORS[0], 2)
 
 	# show the output frame
-	#cv2.imshow("Frame", frame)
-	#key = cv2.waitKey(1) & 0xFF
+	cv2.imshow("Frame", frame)
+	key = cv2.waitKey(1) & 0xFF
 
 	# if the `q` key was pressed, break from the loop
-	#if key == ord("q"):
-	#	break
+	if key == ord("q"):
+		break
 
 	# update the FPS counter
 	fps.update()
