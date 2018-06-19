@@ -129,7 +129,7 @@ while True:
 				if 0 < x < 119:
 					print("Left")
 					if angle > 0:
-						angle = angle - 20
+						angle = angle + 20
 						servo.SetAngle(angle)
                                     
 				elif 120 < x < 260:
@@ -137,8 +137,8 @@ while True:
 					#servo.SetAngle(90)
 				else:
 					print("Right")
-					if angle < 100:
-						angle = angle + 20
+					if angle < 70:
+						angle = angle - 20
 						servo.SetAngle(angle)
                                     
 			cv2.putText(frame, label, (startX, y),
