@@ -128,7 +128,7 @@ while True:
 			if "person" in label:
 				if 0 < x < 119:
 					print("Left")
-					if angle > 0:
+					if angle < 70:
 						angle = angle + 20
 						servo.SetAngle(angle)
                                     
@@ -137,7 +137,7 @@ while True:
 					#servo.SetAngle(90)
 				else:
 					print("Right")
-					if angle < 70:
+					if angle > 0:
 						angle = angle - 20
 						servo.SetAngle(angle)
                                     
